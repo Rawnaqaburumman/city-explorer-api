@@ -57,8 +57,8 @@ server.get('*', (req, res) => {
 
 
 
-server.listen(3001)
+// server.listen(3001)
 
-// server.listen(PORT, () => {
-//   console.log(`listen on Port ${PORT}`);
-// });
+server.listen(PORT, () => {
+  console.log(`listen on Port ${PORT}`);
+});
