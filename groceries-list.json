@@ -1,0 +1,32 @@
+[
+    {
+      "name": "banana",
+      "type": "fruit",
+      "icon": "🍌"
+    },
+    {
+      "name": "apple",
+      "type": "fruit",
+      "icon": "🍎"
+    },
+    {
+      "name": "Kiwi",
+      "type": "fruit",
+      "icon": "🥝"
+    },
+    {
+      "name": "tomato",
+      "type": "vegetable",
+      "icon": "🍅"
+    },
+    {
+      "name": "cucumber",
+      "type": "vegetable",
+      "icon": "🥒"
+    },
+    {
+      "name": "potato",
+      "type": "vegetable",
+      "icon": "🥔"
+    }
+  ]
