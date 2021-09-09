@@ -54,13 +54,13 @@ class Movie {
 
 
 //http://localhost:3001/weather?city_name=Amman
-const WHEATHER_API_KE=process.env.WHEATHER_API_KE;
+const WHEATHER_API_KE=process.env.WHEATHER_API_KEY;
 
 server.get('/weather',  async (req, res) => {
     let cityName = req.query.city_name;
     const witherBitUrl = 'http://api.weatherbit.io/v2.0/forecast/daily'
 
-    const witherResponse = await axios.get(`${witherBitUrl}city=?${cityName},NC&key=${WHEATHER_API_KE}`)
+    const witherResponse = await axios.get(`${witherBitUrl}?city=${cityName}&key=${WHEATHER_API_KE}`)
    
 console.log(witherResponse);
 
@@ -96,16 +96,19 @@ server.get('/movie',  async (req, res) => {
 const moviesKey = process.env.MOVIE_API_KEY;
 let movieCityName = req.query.city_name;
 
-const movieBackUrl = `https://api.themoviedb.org/3/search/movie?api_key=${moviesKey}&query=${movieCityName}`;
-
+const movieBackUrl = 'https://api.themoviedb.org/3/search/movie?'
+const movieResult = await axios.get(`${movieBackUrl}?&api_key=${moviesKey}&query=${movieCityName}`)
+console.log(movieResult);
 try{
-  let moviesArr = movieResult.data.results.map(item => {
+  let moviesArray = movieResult.data.results.map(item => {
                 return new Movie(item);
             })
-            res.send(moviesArr);}
+            res.send(moviesArray);}
             catch {
                 res.status(500).send('we dont have this city');
             };
+        
+        })
 
 server.get('*', (req, res) => {
     res.status(404).send('Something went wrong');
@@ -113,7 +116,7 @@ server.get('*', (req, res) => {
 
 
 
-server.listen(3001)
+server.listen(3001);
 
 // server.listen(PORT, () => {
 //   console.log(`listen on Port ${PORT}`);
