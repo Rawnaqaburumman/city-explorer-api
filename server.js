@@ -117,7 +117,5 @@ server.get('*', (req, res) => {
 
 
 
-server.listen(3001);
-
-server.listen(PORT ||3000)
+server.listen(PORT)
 
